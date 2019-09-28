@@ -2,7 +2,6 @@ import React from 'react';
 
 // Functional component becouse we do not need to re-render the book:
 function BooksList (props){
-
   return(
     <div className= 'list-books-content'>
     <div className='bookshelf-books'>
@@ -12,7 +11,7 @@ function BooksList (props){
           <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:
               //Show the cover page of the page:
-               `url(${props.Book.imageLinks.smallThumbnail})` }}></div>
+               `url(${props.Book.imageLinks ? props.Book.imageLinks.smallThumbnail : ''})` }}></div>
                {/*This part is for handling change the shelf of the books*/}
             <div className="book-shelf-changer">
               <select value={props.BookShelf} onChange={(event) => props.shelfChanger(props.Book , event.target.value)}>
